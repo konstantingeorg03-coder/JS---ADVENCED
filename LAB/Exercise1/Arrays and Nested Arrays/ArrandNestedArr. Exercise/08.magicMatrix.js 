@@ -1,0 +1,26 @@
+function magicMatrix(matrix){
+    const expectedSum = matrix[0].reduce((sum, value) => sum + value, 0);
+
+    for(let row of matrix){
+        const rowSum = row.reduce((sum, value) => sum + value, 0);
+        
+        if(rowSum !== expectedSum) return false;
+    }
+
+    for(let col = 0; col < matrix[0].length; col++){
+        let columnSum = 0;
+
+        for(let row = 0; row < matrix.length; row++){
+            columnSum += matrix[row][col];
+        }    
+
+        if(columnSum !== expectedSum) return false;
+
+    }
+
+    return true;
+}
+
+console.log(magicMatrix([[4, 5, 6],
+ [6, 5, 4],
+ [5, 5, 5]]));
