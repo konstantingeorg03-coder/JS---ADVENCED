@@ -1,10 +1,10 @@
 function magicMatrix(matrix){
-    const expectedSum = matrix[0].reduce((sum, value) => sum + value, 0);
+    const expectedNum = matrix[0].reduce((sum, value) => sum + value);
 
     for(let row of matrix){
-        const rowSum = row.reduce((sum, value) => sum + value, 0);
-        
-        if(rowSum !== expectedSum) return false;
+        const rowSum = row.reduce((sum, value) => sum + value);
+
+        if(rowSum !== expectedNum) return false;
     }
 
     for(let col = 0; col < matrix[0].length; col++){
@@ -12,10 +12,9 @@ function magicMatrix(matrix){
 
         for(let row = 0; row < matrix.length; row++){
             columnSum += matrix[row][col];
-        }    
+        }
 
-        if(columnSum !== expectedSum) return false;
-
+        if(columnSum !== expectedNum) return false;
     }
 
     return true;
