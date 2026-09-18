@@ -1,0 +1,18 @@
+<!Doctype html>
+<html>
+<head>
+    <title>DOM test</title>
+</head>
+<body>
+    <h1 id = "title">Hello, %insert name here%!</h1>
+    <button onclick="edit(
+        document.getElementById('title'),
+        '%insert name here%',
+        'Document Object Model'
+    )">
+    EditElement
+    </button>
+
+    <script src="01. editElement.js"></script>
+</body>
+</html>
