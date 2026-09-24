@@ -1,15 +1,15 @@
-function addItem(){
-    let list = document.getElementById('items');
-    
-    let text = document.getElementById('newItemText');
+function addCity(){
+    let list = document.getElementById('cities');
 
-    let textValue = text.value;
+    let text = document.getElementById('newCityText');
 
-    let newEl = document.createElement('li');
+    let userText = text.value;
 
-    newEl.textContent = textValue;
+    let newElement = document.createElement('li');
 
-    list.appendChild(newEl);
+    newElement.textContent = userText;
+
+    list.appendChild(newElement);
 
     text.value = '';
 }
