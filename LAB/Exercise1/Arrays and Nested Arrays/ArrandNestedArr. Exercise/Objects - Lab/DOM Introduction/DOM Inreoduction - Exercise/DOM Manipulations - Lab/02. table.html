@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="02. tablecss.css">
         <title>Emails</title>
+        <link rel="stylesheet" href="02. tablecss.css">
     </head>
 
     <body>
         <table id="customers">
             <thead>
                 <tr>
-                <th>Name</th>
-                <th>Email</th>
+                    <th>Name</th>
+                    <th>Email</th>
                 </tr>
             </thead>
+
             <tbody>
                 <tr>
-                <td>Eve</td>
-                <td>eve@gmail.com</td>
+                    <td>Eve</td>
+                    <td>eve@gmail.com</td>
                 </tr>
 
                 <tr>
-                <td>Nick</td>
-                <td>nick@yahoo.com</td>
+                    <td>Nick</td>
+                    <td>nick@yahoo.com</td>
                 </tr>
 
                 <tr>
-                <td>Didi</td>
-                <td>didi@didi.net</td>
+                    <td>Didi</td>
+                    <td>didi@didi.net</td>
                 </tr>
 
                 <tr>
-                <td>Tedy</td>
-                <td>tedy@tedy.com</td>
+                    <td>Tedy</td>
+                    <td>tedy@tedy.com</td>
                 </tr>
             </tbody>
         </table>
-
         <label>
         Email:
         <input type="text" name="email">
         <button onclick="deleteByEmail()">Delete</button>
-</label>
+        </label>
         <div id="result"></div>
         <script src="02. deleteFromTable.js"></script>
+    </body>
 </html>
