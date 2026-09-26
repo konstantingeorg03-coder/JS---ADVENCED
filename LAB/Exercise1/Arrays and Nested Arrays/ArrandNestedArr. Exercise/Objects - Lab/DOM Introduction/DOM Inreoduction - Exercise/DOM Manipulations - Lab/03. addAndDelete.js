@@ -3,12 +3,12 @@ function addItem(){
 
     let input = document.getElementById('newItemText');
 
-    let userInput = input.value;
+    let userText = input.value;
 
     let newElement = document.createElement('li');
 
-    newElement.textContent = userInput;
-
+    newElement.textContent = userText;
+    
     items.appendChild(newElement);
 
     let secondElement = document.createElement('a');
