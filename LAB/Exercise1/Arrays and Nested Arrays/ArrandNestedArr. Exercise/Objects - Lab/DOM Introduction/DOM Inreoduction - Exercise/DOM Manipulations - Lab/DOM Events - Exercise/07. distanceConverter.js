@@ -11,13 +11,20 @@ function attachEventsListeners(){
     };
 
     const inputDistance = document.getElementById('inputDistance');
-    const outputDistanceResult = document.getElementById('outputDistance');
-
     const inputUnits = document.getElementById('inputUnits');
+
+    const outputDistanceResult = document.getElementById('outputDistance');
     const outputUnits = document.getElementById('outputUnits');
 
-    document.getElementById('convert').addEventListener('click', () => {
-        const distanceMeters = Number(inputDistance.value) * conversionRates[inputUnits.value];
-        outputDistanceResult.value = distanceMeters / conversionRates[outputUnits.value];
+    const buttonConvert = document.getElementById('convert');
+
+    buttonConvert.addEventListener('click', () => {
+        let valueNum = Number(inputDistance.value);
+        let inputUnitsValue = inputUnits.value;
+        let outputUnitsValue = outputUnits.value;
+
+        valueNum *= conversionRates[inputUnitsValue];
+        valueNum = valueNum / conversionRates[outputUnitsValue];
+        outputDistanceResult.value = valueNum; 
     });
 }
