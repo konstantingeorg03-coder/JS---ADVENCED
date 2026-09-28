@@ -18,7 +18,5 @@ function lockedProfile(){
                 button.textContent = 'Show more';
             }
         });
-
-
-    })
+    });
 }
