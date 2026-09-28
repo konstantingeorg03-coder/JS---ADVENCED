@@ -2,18 +2,23 @@ function lockedProfile(){
     const profiles = Array.from(document.getElementsByClassName('profile'));
 
     profiles.forEach((profile) => {
-        const div = profile.querySelector('div[id$="HiddenFields"]');
         const button = profile.querySelector('button');
-        const input = profile.querySelector('input[value="lock"]');
-
+        const hiddenFields = profile.querySelector('[id$=HiddenFields]');
+        
         button.addEventListener('click', () => {
-            if(input.checked) return;
+            const radio = profile.querySelector('input[type="radio"]:checked');
+            if(radio.value === 'lock') return;
 
-            const isHidden = div.style.display === 'none' || div.style.display === '';
+            if(button.textContent === 'Show more'){
+                hiddenFields.style.display = 'block';
+                button.textContent = 'Hide it';
 
-            div.style.display = isHidden ? 'blovk' : 'none';
-            button.textContent = isHidden ? 'Hide it' : 'Show more';
-
+            }else{
+                hiddenFields.style.display = 'none';
+                button.textContent = 'Show more';
+            }
         });
-    });
+
+
+    })
 }
