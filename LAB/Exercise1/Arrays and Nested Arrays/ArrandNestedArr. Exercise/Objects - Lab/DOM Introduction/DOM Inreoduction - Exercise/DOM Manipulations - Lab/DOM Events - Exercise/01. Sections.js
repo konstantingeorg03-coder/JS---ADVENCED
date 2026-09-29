@@ -2,16 +2,17 @@ function create(words){
     const content = document.getElementById('content');
 
     words.forEach((word) => {
-        const newElement = document.createElement('div');
+        const section = document.createElement('div');
         const paragraph = document.createElement('p');
-        paragraph.style.display = 'none';
 
         paragraph.textContent = word;
-        newElement.appendChild(paragraph);
-        content.appendChild(newElement);
+        paragraph.style.display = 'none';
 
-        newElement.addEventListener('click', () => {
+        section.appendChild(paragraph);
+        content.appendChild(section);
+        
+        section.addEventListener('click', () => {
             paragraph.style.display = 'block';
         });
-    })
+    });
 }
