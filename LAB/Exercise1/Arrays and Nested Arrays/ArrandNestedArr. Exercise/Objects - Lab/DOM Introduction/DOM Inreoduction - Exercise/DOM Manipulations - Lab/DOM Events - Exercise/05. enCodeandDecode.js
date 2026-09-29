@@ -4,30 +4,30 @@ function encodeAndDecodeMessages(){
 
     buttons[0].addEventListener('click', () => {
         let userText = textAreas[0].value;
-        
-        let encodedMessage = '';
 
+        let encodeMessage = '';
+        
         for(let symbol of userText){
             let neededSymbol = symbol.charCodeAt(0) + 1;
 
-            encodedMessage += String.fromCharCode(neededSymbol);
+            encodeMessage += String.fromCharCode(neededSymbol);
         }
 
         textAreas[0].value = '';
-        textAreas[1].value = encodedMessage;
+        textAreas[1].value = encodeMessage;
     });
 
     buttons[1].addEventListener('click', () => {
-        let decodeText = textAreas[1].value;
+        let decodedMessage = textAreas[1].value;
 
-        let decodeMessage = '';
+        let decodeText = '';
 
-        for(let symbol of decodeText){
-            let neededDecodeSymbol = symbol.charCodeAt(0) - 1;
-            
-            decodeMessage += String.fromCharCode(neededDecodeSymbol);
+        for(let symbol of decodedMessage){
+            let neededLetter = symbol.charCodeAt(0) - 1;
+
+            decodeText += String.fromCharCode(neededLetter);
         }
 
-        textAreas[1].value = decodeMessage; 
+        textAreas[1].value = decodeText;
     });
 }
