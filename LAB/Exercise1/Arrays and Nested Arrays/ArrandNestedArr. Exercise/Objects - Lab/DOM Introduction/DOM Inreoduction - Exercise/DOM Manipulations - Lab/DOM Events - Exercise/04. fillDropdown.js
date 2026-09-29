@@ -1,15 +1,14 @@
 function addItem(){
-    const textInput = document.getElementById('newItemText');
+    const inputItem = document.getElementById('newItemText');
     const valueInput = document.getElementById('newItemValue');
 
     const option = document.createElement('option');
 
-    option.textContent = textInput.value;
+    option.textContent = inputItem.value;
     option.value = valueInput.value;
 
-    const menu = document.getElementById('menu');
+    document.getElementById('menu').appendChild(option);
 
-    menu.appendChild(option);
-    textInput.value = '';
+    inputItem.value = '';
     valueInput.value = '';
 }
