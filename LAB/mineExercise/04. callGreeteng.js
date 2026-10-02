@@ -12,6 +12,8 @@ function solve(){
     }
 
     greet.call(person1);
+
+    greet.call(person2);
     
 }
 
