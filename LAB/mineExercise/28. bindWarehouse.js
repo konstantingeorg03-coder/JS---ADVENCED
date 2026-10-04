@@ -11,6 +11,8 @@ function solve(){
             let discountAmount = totalprice * discount / 100;
 
             return totalprice - discountAmount;
+        }else{
+            return 'Not enough stock';
         }
     }
 
