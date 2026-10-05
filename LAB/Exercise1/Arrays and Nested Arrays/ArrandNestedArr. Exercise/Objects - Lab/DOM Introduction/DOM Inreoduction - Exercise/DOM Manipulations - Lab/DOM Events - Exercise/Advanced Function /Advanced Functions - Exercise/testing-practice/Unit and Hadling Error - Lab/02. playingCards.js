@@ -3,12 +3,12 @@ function playingCards(face, suit){
 
     let arr = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
-    let objSuits = {
+    let validSuits = {
         'S': '♠',
         'H': '♥',
         'D': '♦',
-        'C': '♣' 
-    } 
+        'c': '♣'
+    };
 
     if(!arr.includes(face)){
         throw new Error ('Invalid card face');
@@ -17,7 +17,7 @@ function playingCards(face, suit){
 
     obj.face = face;
 
-    obj.suit = objSuits[suit];
+    obj.suit = validSuits[suit];
 
     obj.toString = function () {
         return obj.face + obj.suit;
