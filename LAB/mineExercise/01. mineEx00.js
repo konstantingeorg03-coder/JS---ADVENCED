@@ -1,12 +1,16 @@
-function createPerson(name, age){
-    let obj = {};
+function createProduct(arr){
+    let newArr = [];
 
-    obj.name = name;
+    for(let letter of arr){
+        let needLetter = letter.slice(0, -1);
+        let letter2 = letter.slice(-1);
 
-    obj.age = age;
+        let text = needLetter + '-' + letter2;
 
-    return obj;
+        newArr.push(text);
+    }
+
+    console.log(newArr.join(' '));
 }
 
-console.log(createPerson('Kosio', 23));
-
+createProduct(['12A', '7B', '105C'])
