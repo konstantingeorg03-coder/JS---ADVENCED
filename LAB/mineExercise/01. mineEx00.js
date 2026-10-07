@@ -1,16 +1,32 @@
-function createProduct(arr){
-    let newArr = [];
+function playingCards(face, suit){
+    let obj = {};
 
-    for(let letter of arr){
-        let needLetter = letter.slice(0, -1);
-        let letter2 = letter.slice(-1);
+    let validFaces = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
-        let text = needLetter + '-' + letter2;
+    let validSuits = {
+        'S': '♠',
+        'H': '♥',
+        'D': '♦',
+        'C': '♣'
+    };
 
-        newArr.push(text);
+    obj.face = face;
+
+    obj.suit = validSuits[suit];
+
+    if(!validFaces.includes(face)){
+        throw new Error ('Invalid card face');
     }
 
-    console.log(newArr.join(' '));
+    if(!validSuits[suit]){
+        throw new Error ('Invalid card suit');
+    }
+    
+    obj.toString = function () {
+        return obj.face + obj.suit;
+    }
+
+    return obj;
 }
 
-createProduct(['12A', '7B', '105C'])
+console.log(playingCards('A', 'X').toString());
