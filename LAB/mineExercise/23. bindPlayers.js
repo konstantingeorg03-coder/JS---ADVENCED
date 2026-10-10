@@ -1,27 +1,47 @@
-function solve(){
-    let player1 = {
-        name: 'Ivan',
-        score: 10
+class Hotel {
+    constructor(){
+        this.hotels = {};
     }
 
-    let player2 = {
-        name: 'Maria',
-        score: 20
+    addGuest(name, nights, hotel){
+        if(!this.hotels[hotel]){
+            this.hotels[hotel] = [];
+        }
+
+        this.hotels[hotel].push({name, nights});
     }
 
-    function addPoints(points){
-        this.score += points;
+    bestHotel(){
+        let bestName = '';
 
-        console.log(`${this.name} has ${this.score} points`);
+        let bestTotal = 0;
+
+        for(let curHotel in this.hotels){
+            let sum = 0;
+
+            for(let guest of this.hotels[curHotel]){
+                sum += guest.nights;
+            }
+
+            if(sum > bestTotal){
+                bestTotal = sum;
+
+                bestName = curHotel;
+            }
+        }
+
+        const guests = this.hotels[bestName];
+
+        guests.sort((a, b) => b.nights - a.nights || a.name.localeCompare(b.name));
+
+        let result = `Best hotel: ${bestName}\n`;
+                  
+        result += `Total nights: ${bestTotal}\n`;
+ 
+        for (let guest of guests) {
+            result += `${guest.name} ${guest.nights}\n`;
+        }
+
+        return result.trim();
     }
-
-    let result = addPoints.bind(player1, 5);
-    let result2 = addPoints.bind(player2, 3);
-    let result3 = addPoints.bind(player1, 2);
-
-    result();
-    result2();
-    result3();
 }
-
-solve();
