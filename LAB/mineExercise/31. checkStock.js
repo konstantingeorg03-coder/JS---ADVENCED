@@ -1,37 +1,30 @@
-function school(arr){
-    const classes = new Map();
-
-    for(let chars of arr){
-        let [group, name, points] = chars.split(' | ');
-
-        points = Number(points);
-
-        if(!classes.has(group)){
-            classes.set(group, new Map());
-        }
-
-        const students = classes.get(group);
-
-        if(students.has(name)){
-            students.set(name, students.get(name) + points);
-        }else{
-            students.set(name, points);
-        }
+class Library {
+    constructor(){
+        this.books = {};
     }
 
-    for(let [group, students] of classes){
-        console.log(group);
-
-        for(let [name, points] of students){
-            console.log(`---${name}: ${points} `);
+    addBook(title, genre){
+        if(!(genre in this.books)){
+            this.books[genre] = [];;
         }
+
+        this.books[genre].push(title);
+
+        return `Added ${title} to ${genre}`;
+    }
+
+    countBooks(genres){
+        if(!this.books[genres]){
+            return 0;
+        }
+
+        return this.books[genres].length;
     }
 }
 
-school([
-    '10A | Kosio | 50',
-    '10B | Ivan | 30',
-    '10A | Maria | 40',
-    '10A | Kosio | 20',
-    '10B | Petar | 60'
-]);
+const lib = new Library();
+console.log(lib.addBook('Dune', 'sci-fi'));   // Added Dune to sci-fi
+lib.addBook('Foundation', 'sci-fi');
+lib.addBook('It', 'horror');
+console.log(lib.countBooks('sci-fi'));        // 2
+console.log(lib.countBooks('romance'));       // 0
