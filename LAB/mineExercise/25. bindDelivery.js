@@ -1,16 +1,30 @@
-function solve(){
-    let shop = {
-        price: 10
+class Race {
+    constructor(){
+        this.runners = [];
     }
 
-    function calculateOrder(quantity, deliveryFee){
-        return this.price * quantity + deliveryFee;
+    addRunner(name, time){
+        this.runners.push({name, time});
     }
 
-    let result = calculateOrder.bind(shop, 3);
+    ranking(){
+        this.runners.sort((a, b) => a.time - b.time || a.name.localeCompare(b.name));
 
-    console.log(result(5));
-    console.log(result(8));
+        let result = '';
+
+        for(let i = 0; i < this.runners.length; i++){
+            const runner = this.runners[i];
+
+            result += `${i + 1}. ${runner.name} - ${runner.time}\n`;
+        }
+
+        return result.trim();
+    }
 }
 
-solve();
+const r2 = new Race();
+r2.addRunner('Stan', 10);
+r2.addRunner('Ana', 15);
+r2.addRunner('Bobi', 10);
+r2.addRunner('Dimo', 8);
+console.log(r2.ranking());
