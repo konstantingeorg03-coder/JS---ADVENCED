@@ -1,14 +1,29 @@
-function checkPrice(price){
-    if(price < 0){
-        throw new Error('Невалидна цена');
-    }else{
-        return 'Валидна цена';
+class Classroom {
+    constructor(){
+        this.classes = {};
+    }
+
+    addStudent(name, className){
+        if(!this.classes[className]){
+            this.classes[className] = [];
+        }
+
+        this.classes[className].push(name);
+    }
+
+    listClasses(){
+        let result = '';
+
+        for(let className in this.classes){
+            result += `${className}: ${this.classes[className].length} students \n`;
+        }
+
+        return result.trim();
     }
 }
 
-try {
-    checkPrice(-5);
-
-}catch(error){
-    console.error(error.message);
-}
+const c = new Classroom();
+c.addStudent('Kosio', '10A');
+c.addStudent('Ivan', '10B');
+c.addStudent('Maria', '10A');
+console.log(c.listClasses());
