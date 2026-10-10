@@ -1,17 +1,32 @@
-function solve(){
-    const product = {
-        name: 'Book',
-        price: 12
+class Store {
+    constructor(){
+        this.categories = {};
     }
 
-    function calculateTotal(quantity){
-        return this.price * quantity;
+    addProduct(name, price, category){
+        if(!this.categories[category]){
+            this.categories[category] = [];
+        }
+
+        this.categories[category].push({name, price});
     }
 
-    let result = calculateTotal.bind(product);
+    topProducts(category){
+        this.categories[category].sort((a, b) => b.price - a.price || a.name.localeCompare(b.name));
 
-    console.log(result(2));
-    console.log(result(5));
+        let result = '';
+
+        for(let product of this.categories[category]){
+            result += `${product.name} - ${product.price}\n`;
+        }    
+
+        return result.trim();
+    }
 }
 
-solve();
+const st = new Store();
+st.addProduct('Milk', 2.5, 'food');
+st.addProduct('Cheese', 8, 'food');
+st.addProduct('Bread', 2.5, 'food');
+st.addProduct('Cola', 3, 'drinks');
+console.log(st.topProducts('food'));
