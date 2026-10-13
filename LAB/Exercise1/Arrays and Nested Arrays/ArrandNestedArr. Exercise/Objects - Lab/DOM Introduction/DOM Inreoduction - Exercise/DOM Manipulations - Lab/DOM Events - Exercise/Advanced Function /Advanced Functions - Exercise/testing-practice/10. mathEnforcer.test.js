@@ -9,7 +9,7 @@ describe('mathEnforcer', () => {
         });
 
         it('should return the result of given parameter plus 5', () => {
-            expect(mathEnforcer.addFive(5)).to.equal(10);чефбцжиер
+            expect(mathEnforcer.addFive(5)).to.equal(10);
         });
 
         it('should return 0 for the given parameter is negative number', () => {
