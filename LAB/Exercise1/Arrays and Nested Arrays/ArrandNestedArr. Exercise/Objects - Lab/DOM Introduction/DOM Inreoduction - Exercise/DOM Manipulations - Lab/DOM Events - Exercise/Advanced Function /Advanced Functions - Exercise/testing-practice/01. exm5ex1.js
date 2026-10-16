@@ -16,7 +16,7 @@ const weddingDay = {
     },
 
     otherSpendings(weddingDecoration, photography, discount) {
-        if (!Array.isArray(weddingDecoration) || !Array.isArray(photography) || typeof discount !== "boolean") {
+        if (!Array.isArray(weddingDecoration) || !Array.isArray() || typeof discount !== "boolean") {
           throw new Error("Invalid Information!");
         }
         let totalPrice = 0;
